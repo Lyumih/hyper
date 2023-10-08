@@ -1,4 +1,4 @@
-name: $chance
+name: $hyper
 
 on:
   workflow_dispatch:
@@ -16,10 +16,10 @@ jobs:
     
     - uses: hyoo-ru/mam_build@master2
       with:
-        package: 'chance'
+        package: 'hyper'
         modules: 'heartbeat'
     
     - uses: JamesIves/github-pages-deploy-action@4.1.7
       with:
         branch: gh-pages
-        folder: chance/heartbeat/-
+        folder: hyper/heartbeat/-

@@ -13,11 +13,13 @@ $hyper_heartbeat $mol_view
 					body /
 						<= Boxing_text $mol_text text \
 							\# Приложение: Сердцебиение
+							\- Сайт:
+							\- GitHub: https://github.com/Lyumih/hyper
 							\- Телеграм чат:
 							\- Дискорд:
-							\- Page:
+							\- Page hyoo:
+							\- Статья:
 							\- Tilda:
-							\- GitHub: https://github.com/Lyumih/hyper
 							\- Презентация:
 							\- Видео:
 							\- Figma:
