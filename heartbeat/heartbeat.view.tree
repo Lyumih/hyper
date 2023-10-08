@@ -5,6 +5,14 @@ $hyper_heartbeat $mol_view
 		<= Menu $mol_book2_catalog
 			menu_title \Heartbeat
 			param \page
+			plugins /
+				<= Theme $mol_theme_auto
+			menu_tools /
+				<= GitHub $mol_link_source uri \https://github.com/Lyumih/hyper
+				<= Lights $mol_lights_toggle
+				<= Logout $mol_button_minor
+					click? <= logout? null
+					sub / <= Logout_icon $mol_icon_logout
 			spreads *
 				beat <= Beat $hyper_heartbeat_beat
 				boxing <= Boxing $mol_page
