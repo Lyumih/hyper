@@ -32,9 +32,49 @@ $mol_page $mol_view
 			dom_name \footer
 			sub <= foot /$mol_view
 
-$hyper_heartbeat_beat $mol_page
-	title \Сердцебиение
-	body /
+$mol_link $mol_view
+	uri \
+	dom_name \a
+	attr *
+		^
+		href <= uri_toggle \
+		title <= hint_safe <= hint \
+		target <= target \_self
+		download <= file_name \
+		mol_link_current <= current false
+	sub /$mol_view_content
+		<= title
+	arg *
+	event *
+		^
+		click?event <=> click?event <=> event_click?event null
+
+$mol_image $mol_view
+	dom_name \img
+	field *
+		^
+		src <= uri \
+		alt <= title
+		loading <= loading \eager
+		decoding <= decoding \async
+		crossOrigin <= cors null
+	attr *
+		^
+		width <= natural_width? 0
+		height <= natural_height? 0
+	event *
+		load? <=> load? null
+	minimal_width 16
+	minimal_height 16
+
+$mol_link_iconed $mol_link
+	sub /
+		<= Icon $mol_image
+			uri <= icon \
+			title \
+	content /
+		<= title <= uri
+	host \
 
 $mol_list $mol_view
 	render_visible_only true
@@ -287,50 +327,6 @@ $mol_grid_cell $mol_view
 
 $mol_grid_number $mol_grid_cell
 
-$mol_link $mol_view
-	uri \
-	dom_name \a
-	attr *
-		^
-		href <= uri_toggle \
-		title <= hint_safe <= hint \
-		target <= target \_self
-		download <= file_name \
-		mol_link_current <= current false
-	sub /$mol_view_content
-		<= title
-	arg *
-	event *
-		^
-		click?event <=> click?event <=> event_click?event null
-
-$mol_image $mol_view
-	dom_name \img
-	field *
-		^
-		src <= uri \
-		alt <= title
-		loading <= loading \eager
-		decoding <= decoding \async
-		crossOrigin <= cors null
-	attr *
-		^
-		width <= natural_width? 0
-		height <= natural_height? 0
-	event *
-		load? <=> load? null
-	minimal_width 16
-	minimal_height 16
-
-$mol_link_iconed $mol_link
-	sub /
-		<= Icon $mol_image
-			uri <= icon \
-			title \
-	content /
-		<= title <= uri
-	host \
-
 $mol_embed_native $mol_scroll
 	uri? \
 	dom_name \object
@@ -485,6 +481,33 @@ $mol_text_span $mol_paragraph
 	attr *
 		^
 		mol_text_type <= type \
+
+$mol_text_list $mol_text
+	auto_scroll null
+	attr *
+		^
+		mol_text_list_type <= type \
+	Paragraph* $mol_text_list_item
+		index <= item_index*
+		sub <= block_content*
+
+$mol_text_list_item $mol_paragraph
+	attr *
+		^
+		mol_text_list_item_index <= index 0
+
+$hyper_heartbeat_beat $mol_page
+	title \Сердцебиение
+	body /
+		<= GitHub $mol_link_iconed
+			title \Приложение: Heartbeat
+			uri \https://github.com/Lyumih/hyper
+		<= Stats $mol_view
+			sub /
+				<= Stars $mol_text text \Stars: 12
+				<= Commits $mol_text text \Commits: 32
+				<= Issues $mol_text text \Issues: 0
+				<= Last_update $mol_text text \Update: 2023-10-08
 
 $mol_book2 $mol_scroll
 	menu_title \
@@ -654,27 +677,12 @@ $mol_book2_catalog $mol_book2
 		sub /
 			<= Spread_close_icon $mol_icon_cross
 
-$mol_text_list $mol_text
-	auto_scroll null
-	attr *
-		^
-		mol_text_list_type <= type \
-	Paragraph* $mol_text_list_item
-		index <= item_index*
-		sub <= block_content*
-
-$mol_text_list_item $mol_paragraph
-	attr *
-		^
-		mol_text_list_item_index <= index 0
-
 $hyper_heartbeat $mol_view
-	title \Hyper Chance: Heartbeat
+	title \Heartbeat: Hyper Chance
+	auth true
 	sub /
-		<= Auth $mol_page
-			title \Авторизация
 		<= Menu $mol_book2_catalog
-			menu_title \Сердцебиение
+			menu_title \GitHub: Heartbeat
 			param \page
 			spreads *
 				beat <= Beat $hyper_heartbeat_beat
@@ -683,7 +691,7 @@ $hyper_heartbeat $mol_view
 					body /
 						<= Boxing_text $mol_text text \
 							\# Приложение: Сердцебиение
-							\- Сайт:
+							\- Сайт: https://lyumih.github.io/hyper/
 							\- GitHub: https://github.com/Lyumih/hyper
 							\- Телеграм чат:
 							\- Дискорд:
@@ -695,3 +703,6 @@ $hyper_heartbeat $mol_view
 							\- Figma:
 							\- Бэк:
 							\- БД: (скрыто)
+							\- Демо пользователь: demo / demo
+		<= Auth $mol_page
+			title \Авторизация Hyper Chance: Heartbeat
