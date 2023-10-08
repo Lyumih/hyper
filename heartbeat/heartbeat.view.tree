@@ -3,7 +3,7 @@ $hyper_heartbeat $mol_view
 	auth true
 	sub /
 		<= Menu $mol_book2_catalog
-			menu_title \GitHub: Heartbeat
+			menu_title \Heartbeat
 			param \page
 			spreads *
 				beat <= Beat $hyper_heartbeat_beat
@@ -14,10 +14,10 @@ $hyper_heartbeat $mol_view
 							\# Приложение: Сердцебиение
 							\- Сайт: https://lyumih.github.io/hyper/
 							\- GitHub: https://github.com/Lyumih/hyper
-							\- Телеграм чат:
+							\- Телеграм чат: https://t.me/hyper_chance
 							\- Дискорд:
-							\- Page hyoo:
-							\- Статья:
+							\- Page hyoo: https://page.hyoo.ru/#!=tdgpgq_hbdfnc
+							\- Статья: https://habr.com/ru/articles/766062/
 							\- Tilda:
 							\- Презентация:
 							\- Видео:
@@ -25,5 +25,4 @@ $hyper_heartbeat $mol_view
 							\- Бэк:
 							\- БД: (скрыто)
 							\- Демо пользователь: demo / demo
-		<= Auth $mol_page
-			title \Авторизация Hyper Chance: Heartbeat
+		<= Auth $hyper_heartbeat_auth

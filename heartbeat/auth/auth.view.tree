@@ -1,0 +1,21 @@
+$hyper_heartbeat_auth $mol_page
+	title \Войти в Heartbeat
+	body /
+		<= Login_form $mol_form_draft
+			form_fields /
+				<= Email_field $mol_form_field
+					name \Логин
+					Content <= Email_control $mol_string
+						value? <=> email? \
+				<= Password_field $mol_form_field
+					name \Пароль
+					Content <= Password_control $mol_string
+						value? <=> password? \
+						type \password
+			buttons /
+				<= Login $mol_button_major
+					title \Войти
+					click? <=> login_submit? null
+				<= Login_demo_user $mol_button_minor
+					title \Демо
+					click? <=> login_demo? null
