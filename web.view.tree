@@ -502,12 +502,10 @@ $hyper_heartbeat_beat $mol_page
 		<= GitHub $mol_link_iconed
 			title \Приложение: Heartbeat
 			uri \https://github.com/Lyumih/hyper
-		<= Stats $mol_view
-			sub /
-				<= Stars $mol_text text \Stars: 12
-				<= Commits $mol_text text \Commits: 32
-				<= Issues $mol_text text \Issues: 0
-				<= Last_update $mol_text text \Update: 2023-10-08
+		<= Stars $mol_text text \Звёзд: 12
+		<= Commits $mol_text text \Коммитов: 32
+		<= Issues $mol_text text \Ошибок: 0
+		<= Last_update $mol_text text \Обновление: 2023-10-08
 
 $mol_book2 $mol_scroll
 	menu_title \
@@ -677,12 +675,84 @@ $mol_book2_catalog $mol_book2
 		sub /
 			<= Spread_close_icon $mol_icon_cross
 
+$mol_labeler $mol_list
+	rows /
+		<= Label $mol_view
+			minimal_height 32
+			sub <= label /$mol_view_content
+				<= title
+		<= Content $mol_view
+			minimal_height 24
+			sub <= content /
+
+$mol_form_field $mol_labeler
+	bids /string
+	label /
+		<= name \
+		<= Bid $mol_view
+			sub / <= bid \
+	content / <= control null
+
+$mol_button_major $mol_button_typed
+	attr *
+		^
+		mol_theme \$mol_theme_accent
+
+$mol_row $mol_view
+
+$mol_form $mol_list
+	submit_allowed true
+	submit_blocked false
+	event *
+		^
+		keydown?event <=> keydown?event null
+	submit?event null
+	rows /
+		<= Body $mol_list
+			sub <= body <= form_fields /$mol_form_field
+		<= Foot $mol_row
+			sub <= foot <= buttons /$mol_view
+
+$mol_form_draft $mol_form
+	model $mol_object2
+	changed false
+	value_str*? \
+	value_bool*? false
+	value_number*? 0
+	dictionary_bool*? *
+	list_string*? /string
+	value_changed* false
+	reset? null
+
+
+$hyper_heartbeat_auth $mol_page
+	title \Войти в Heartbeat
+	body /
+		<= Login_form $mol_form_draft
+			form_fields /
+				<= Email_field $mol_form_field
+					name \Логин
+					Content <= Email_control $mol_string
+						value? <=> email? \
+				<= Password_field $mol_form_field
+					name \Пароль
+					Content <= Password_control $mol_string
+						value? <=> password? \
+						type \password
+			buttons /
+				<= Login $mol_button_major
+					title \Войти
+					click? <=> login_submit? null
+				<= Login_demo_user $mol_button_minor
+					title \Демо
+					click? <=> login_demo? null
+
 $hyper_heartbeat $mol_view
 	title \Heartbeat: Hyper Chance
 	auth true
 	sub /
 		<= Menu $mol_book2_catalog
-			menu_title \GitHub: Heartbeat
+			menu_title \Heartbeat
 			param \page
 			spreads *
 				beat <= Beat $hyper_heartbeat_beat
@@ -693,10 +763,10 @@ $hyper_heartbeat $mol_view
 							\# Приложение: Сердцебиение
 							\- Сайт: https://lyumih.github.io/hyper/
 							\- GitHub: https://github.com/Lyumih/hyper
-							\- Телеграм чат:
+							\- Телеграм чат: https://t.me/hyper_chance
 							\- Дискорд:
-							\- Page hyoo:
-							\- Статья:
+							\- Page hyoo: https://page.hyoo.ru/#!=tdgpgq_hbdfnc
+							\- Статья: https://habr.com/ru/articles/766062/
 							\- Tilda:
 							\- Презентация:
 							\- Видео:
@@ -704,5 +774,4 @@ $hyper_heartbeat $mol_view
 							\- Бэк:
 							\- БД: (скрыто)
 							\- Демо пользователь: demo / demo
-		<= Auth $mol_page
-			title \Авторизация Hyper Chance: Heartbeat
+		<= Auth $hyper_heartbeat_auth
