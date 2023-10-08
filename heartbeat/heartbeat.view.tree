@@ -1,10 +1,9 @@
 $hyper_heartbeat $mol_view
-	title \Hyper Chance: Heartbeat
+	title \Heartbeat: Hyper Chance
+	auth true
 	sub /
-		<= Auth $mol_page
-			title \Авторизация
 		<= Menu $mol_book2_catalog
-			menu_title \Сердцебиение
+			menu_title \GitHub: Heartbeat
 			param \page
 			spreads *
 				beat <= Beat $hyper_heartbeat_beat
@@ -13,7 +12,7 @@ $hyper_heartbeat $mol_view
 					body /
 						<= Boxing_text $mol_text text \
 							\# Приложение: Сердцебиение
-							\- Сайт:
+							\- Сайт: https://lyumih.github.io/hyper/
 							\- GitHub: https://github.com/Lyumih/hyper
 							\- Телеграм чат:
 							\- Дискорд:
@@ -25,3 +24,6 @@ $hyper_heartbeat $mol_view
 							\- Figma:
 							\- Бэк:
 							\- БД: (скрыто)
+							\- Демо пользователь: demo / demo
+		<= Auth $mol_page
+			title \Авторизация Hyper Chance: Heartbeat

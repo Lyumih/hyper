@@ -1,3 +1,12 @@
 $hyper_heartbeat_beat $mol_page
 	title \Сердцебиение
 	body /
+		<= GitHub $mol_link_iconed
+			title \Приложение: Heartbeat
+			uri \https://github.com/Lyumih/hyper
+		<= Stats $mol_view
+			sub /
+				<= Stars $mol_text text \Stars: 12
+				<= Commits $mol_text text \Commits: 32
+				<= Issues $mol_text text \Issues: 0
+				<= Last_update $mol_text text \Update: 2023-10-08
