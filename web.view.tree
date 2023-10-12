@@ -523,9 +523,12 @@ $mol_text_list_item $mol_paragraph
 $hyper_heartbeat_beat $mol_page
 	title \Сердцебиение
 	body /
-		<= GitHub $mol_link_iconed
-			title \Приложение: Heartbeat
-			uri \https://github.com/Lyumih/hyper
+		<= Repos_list $mol_list
+			rows <= repos_list /
+				<= Repo*0 $mol_view sub /
+					<= GitHub* $mol_link_iconed
+						title <= repo_name*? \
+						uri <= repo_uri*? \
 		<= Stars $mol_text text \Звёзд: 12
 		<= Commits $mol_text text \Коммитов: 32
 		<= Issues $mol_text text \Ошибок: 0

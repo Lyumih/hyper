@@ -8737,68 +8737,6 @@ var $;
 "use strict";
 var $;
 (function ($) {
-    class $hyper_heartbeat_beat extends $mol_page {
-        title() {
-            return "Сердцебиение";
-        }
-        body() {
-            return [
-                this.GitHub(),
-                this.Stars(),
-                this.Commits(),
-                this.Issues(),
-                this.Last_update()
-            ];
-        }
-        GitHub() {
-            const obj = new this.$.$mol_link_iconed();
-            obj.title = () => "Приложение: Heartbeat";
-            obj.uri = () => "https://github.com/Lyumih/hyper";
-            return obj;
-        }
-        Stars() {
-            const obj = new this.$.$mol_text();
-            obj.text = () => "Звёзд: 12";
-            return obj;
-        }
-        Commits() {
-            const obj = new this.$.$mol_text();
-            obj.text = () => "Коммитов: 32";
-            return obj;
-        }
-        Issues() {
-            const obj = new this.$.$mol_text();
-            obj.text = () => "Ошибок: 0";
-            return obj;
-        }
-        Last_update() {
-            const obj = new this.$.$mol_text();
-            obj.text = () => "Обновление: 2023-10-08";
-            return obj;
-        }
-    }
-    __decorate([
-        $mol_mem
-    ], $hyper_heartbeat_beat.prototype, "GitHub", null);
-    __decorate([
-        $mol_mem
-    ], $hyper_heartbeat_beat.prototype, "Stars", null);
-    __decorate([
-        $mol_mem
-    ], $hyper_heartbeat_beat.prototype, "Commits", null);
-    __decorate([
-        $mol_mem
-    ], $hyper_heartbeat_beat.prototype, "Issues", null);
-    __decorate([
-        $mol_mem
-    ], $hyper_heartbeat_beat.prototype, "Last_update", null);
-    $.$hyper_heartbeat_beat = $hyper_heartbeat_beat;
-})($ || ($ = {}));
-//hyper/heartbeat/beat/-view.tree/beat.view.tree.ts
-;
-"use strict";
-var $;
-(function ($) {
     class $mol_text_list extends $mol_text {
         auto_scroll() {
             return null;
@@ -8844,6 +8782,138 @@ var $;
     $mol_style_attach("mol/text/list/list.view.css", "[mol_text_list] {\r\n\tpadding-left: 1.75rem;\r\n}\r\n\r\n[mol_text_list_item] {\r\n\tcontain: none;\r\n\tdisplay: list-item;\r\n}\r\n\r\n[mol_text_list_item]::before {\r\n\tcontent: attr( mol_text_list_item_index ) \".\";\r\n\twidth: 1.25rem;\r\n\tdisplay: inline-block;\r\n\tposition: absolute;\r\n\tmargin-left: -1.75rem;\r\n\ttext-align: end;\r\n}\r\n\r\n[mol_text_list_type=\"-\"] > [mol_text_list_item]::before,\r\n[mol_text_list_type=\"*\"] > [mol_text_list_item]::before {\r\n\tcontent: \"•\";\r\n}\r\n");
 })($ || ($ = {}));
 //mol/text/list/-css/list.view.css.ts
+;
+"use strict";
+var $;
+(function ($) {
+    class $hyper_heartbeat_beat extends $mol_page {
+        title() {
+            return "Сердцебиение";
+        }
+        body() {
+            return [
+                this.Repos_list(),
+                this.Stars(),
+                this.Commits(),
+                this.Issues(),
+                this.Last_update()
+            ];
+        }
+        repo_name(id, next) {
+            if (next !== undefined)
+                return next;
+            return "";
+        }
+        repo_uri(id, next) {
+            if (next !== undefined)
+                return next;
+            return "";
+        }
+        GitHub(id) {
+            const obj = new this.$.$mol_link_iconed();
+            obj.title = () => this.repo_name(id);
+            obj.uri = () => this.repo_uri(id);
+            return obj;
+        }
+        Repo(id) {
+            const obj = new this.$.$mol_view();
+            obj.sub = () => [
+                this.GitHub(id)
+            ];
+            return obj;
+        }
+        repos_list() {
+            return [
+                this.Repo("0")
+            ];
+        }
+        Repos_list() {
+            const obj = new this.$.$mol_list();
+            obj.rows = () => this.repos_list();
+            return obj;
+        }
+        Stars() {
+            const obj = new this.$.$mol_text();
+            obj.text = () => "Звёзд: 12";
+            return obj;
+        }
+        Commits() {
+            const obj = new this.$.$mol_text();
+            obj.text = () => "Коммитов: 32";
+            return obj;
+        }
+        Issues() {
+            const obj = new this.$.$mol_text();
+            obj.text = () => "Ошибок: 0";
+            return obj;
+        }
+        Last_update() {
+            const obj = new this.$.$mol_text();
+            obj.text = () => "Обновление: 2023-10-08";
+            return obj;
+        }
+    }
+    __decorate([
+        $mol_mem_key
+    ], $hyper_heartbeat_beat.prototype, "repo_name", null);
+    __decorate([
+        $mol_mem_key
+    ], $hyper_heartbeat_beat.prototype, "repo_uri", null);
+    __decorate([
+        $mol_mem_key
+    ], $hyper_heartbeat_beat.prototype, "GitHub", null);
+    __decorate([
+        $mol_mem_key
+    ], $hyper_heartbeat_beat.prototype, "Repo", null);
+    __decorate([
+        $mol_mem
+    ], $hyper_heartbeat_beat.prototype, "Repos_list", null);
+    __decorate([
+        $mol_mem
+    ], $hyper_heartbeat_beat.prototype, "Stars", null);
+    __decorate([
+        $mol_mem
+    ], $hyper_heartbeat_beat.prototype, "Commits", null);
+    __decorate([
+        $mol_mem
+    ], $hyper_heartbeat_beat.prototype, "Issues", null);
+    __decorate([
+        $mol_mem
+    ], $hyper_heartbeat_beat.prototype, "Last_update", null);
+    $.$hyper_heartbeat_beat = $hyper_heartbeat_beat;
+})($ || ($ = {}));
+//hyper/heartbeat/beat/-view.tree/beat.view.tree.ts
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $hyper_heartbeat_beat extends $.$hyper_heartbeat_beat {
+            repos() {
+                console.log('repos');
+                let result = this.$.$mol_fetch
+                    .json('http://localhost:3000/api/v1/repo');
+                console.log(result);
+                return result || [];
+            }
+            repos_list() {
+                return this.repos().map((repo) => this.Repo(repo['@rid']));
+            }
+            repo_name(id, next) {
+                return this.repos().find((repo) => repo['@rid'] === id)?.name ?? '';
+            }
+            repo_uri(id, next) {
+                return this.repos().find((repo) => repo['@rid'] === id)?.uri ?? '';
+            }
+        }
+        __decorate([
+            $mol_mem
+        ], $hyper_heartbeat_beat.prototype, "repos", null);
+        $$.$hyper_heartbeat_beat = $hyper_heartbeat_beat;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+//hyper/heartbeat/beat/beat.view.ts
 ;
 "use strict";
 var $;

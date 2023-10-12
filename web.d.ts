@@ -2414,18 +2414,6 @@ declare namespace $ {
 }
 
 declare namespace $ {
-    class $hyper_heartbeat_beat extends $mol_page {
-        title(): string;
-        body(): readonly any[];
-        GitHub(): $$.$mol_link_iconed;
-        Stars(): $$.$mol_text;
-        Commits(): $$.$mol_text;
-        Issues(): $$.$mol_text;
-        Last_update(): $$.$mol_text;
-    }
-}
-
-declare namespace $ {
     class $mol_text_list extends $mol_text {
         auto_scroll(): any;
         attr(): Record<string, any>;
@@ -2439,6 +2427,36 @@ declare namespace $ {
 }
 
 declare namespace $ {
+}
+
+declare namespace $ {
+    class $hyper_heartbeat_beat extends $mol_page {
+        title(): string;
+        body(): readonly any[];
+        repo_name(id: any, next?: any): string;
+        repo_uri(id: any, next?: any): string;
+        GitHub(id: any): $$.$mol_link_iconed;
+        Repo(id: any): $mol_view;
+        repos_list(): readonly any[];
+        Repos_list(): $$.$mol_list;
+        Stars(): $$.$mol_text;
+        Commits(): $$.$mol_text;
+        Issues(): $$.$mol_text;
+        Last_update(): $$.$mol_text;
+    }
+}
+
+declare namespace $.$$ {
+    class $hyper_heartbeat_beat extends $.$hyper_heartbeat_beat {
+        repos(): {
+            '@rid': string;
+            name: string;
+            uri: string;
+        }[];
+        repos_list(): readonly any[];
+        repo_name(id: any, next?: any): string;
+        repo_uri(id: any, next?: any): string;
+    }
 }
 
 declare namespace $ {
@@ -2997,7 +3015,7 @@ declare namespace $ {
         logout(next?: any): any;
         Logout_icon(): $mol_icon_logout;
         Logout(): $mol_button_minor;
-        Beat(): $hyper_heartbeat_beat;
+        Beat(): $$.$hyper_heartbeat_beat;
         Boxing_text(): $$.$mol_text;
         Boxing(): $mol_page;
         Menu(): $$.$mol_book2_catalog;
