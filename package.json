@@ -138,6 +138,7 @@
     "$mol_svg",
     "$mol_state_time",
     "$mol_svg_path",
+    "$mol_type_enforce",
     "$mol_lights_toggle",
     "$mol_check_icon",
     "$mol_check",
