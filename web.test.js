@@ -2605,6 +2605,9 @@ var $;
 
 ;
 "use strict";
+
+;
+"use strict";
 var $;
 (function ($) {
     $mol_test({
@@ -2654,9 +2657,6 @@ var $;
         $.$mol_locale = $mol_locale_mock;
     });
 })($ || ($ = {}));
-
-;
-"use strict";
 
 ;
 "use strict";
