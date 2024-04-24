@@ -208,7 +208,7 @@
     "$mol_hotkey",
     "$mol_nav",
     "$mol_string",
-    "$mol_icon_cross",
+    "$mol_icon_close",
     "$mol_match",
     "$hyper_heartbeat_auth",
     "$mol_form_field",
