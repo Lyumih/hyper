@@ -123,9 +123,9 @@ $mol_icon_logout $mol_icon path \M17 7L15.59 8.41L18.17 11H8V13H18.17L15.59 15.5
 $mol_scroll $mol_view
 	scroll_top? 0
 	scroll_left? 0
-	field *
+	attr *
 		^
-		tabIndex <= tabindex -1
+		tabindex <= tabindex -1
 	event *
 		^
 		scroll?event <=> event_scroll?event null
