@@ -569,9 +569,11 @@ $hyper_heartbeat_beat $mol_page
 
 $mol_book2 $mol_scroll
 	menu_title \
-	sub <= pages /$mol_view
+	sub /$mol_view
+		^ pages /$mol_view
+		^ placeholders /$mol_view
+			<= Placeholder $mol_view
 	minimal_width 0
-	Placeholder $mol_view
 	Gap* $mol_view title \
 
 $mol_pop $mol_view
