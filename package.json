@@ -232,6 +232,8 @@
     "$mol_labeler",
     "$mol_button_major",
     "$mol_form_draft",
+    "$mol_icon_restore",
+    "$mol_status",
     "$mol_wire_race"
   ],
   "dependencies": {
