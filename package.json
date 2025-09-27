@@ -228,12 +228,12 @@
     "$hyper_heartbeat_auth",
     "$mol_form_field",
     "$mol_form",
+    "$mol_button_major",
+    "$mol_status",
     "$mol_row",
     "$mol_labeler",
-    "$mol_button_major",
     "$mol_form_draft",
     "$mol_icon_restore",
-    "$mol_status",
     "$mol_wire_race"
   ],
   "dependencies": {
