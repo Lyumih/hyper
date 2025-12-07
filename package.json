@@ -243,7 +243,6 @@
     "$mol_wire_race"
   ],
   "dependencies": {
-    "internal": "*",
     "jsdom": "*"
   }
 }
